@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: money.transfer.api
+---
+testFramework: junit
+sourceLanguage: java
