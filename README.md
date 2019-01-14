@@ -4,7 +4,10 @@ This repository contains an API for Money Transfer
 
 #### Run Local
 ````
-Import the project to eclipse and just Run as Java Application (Application.java)
+1.Import the project to eclipse 
+2.Enable Annotation Processors
+   Go to project properties > Maven > Annotation Processing > Check Automatically configure JDT APT
+3.Run as Java Application (Application.java)
 ````
 
 #### Build the package
@@ -30,7 +33,6 @@ docker rm <container-id> -f
 * [Micronaut 1.0.3] - Micronaut is a modern, JVM-based, full stack microservices framework designed for building modular, easily testable microservice applications.
 * h2-Database
 * Hibernate-JPA
-* RxJava
 * Junit
 * Java 8
 * Maven
