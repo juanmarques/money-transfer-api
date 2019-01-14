@@ -30,13 +30,9 @@ public class TransferController {
 	@Post("/transfer")
 	@CircuitBreaker(reset = "30s")
 	public HttpResponse<?> save(@Body @Valid Transaction trans) {
-
-		if (trans.getFromId() == 0 || trans.getToId() == 0 || trans.getAmount() == 0.0) {
-			return HttpResponse.status(HttpStatus.BAD_REQUEST).body("From/ To / Amount parameter can't be null neither 0");
-		} else {
-			transferService.transfer(trans);
-			return HttpResponse.status(HttpStatus.OK).body(trans);
-		}
+		
+		transferService.transfer(trans);
+		return HttpResponse.status(HttpStatus.OK).body(trans);
 	}
 
 	@Get("/historical")

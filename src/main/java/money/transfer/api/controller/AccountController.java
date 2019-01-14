@@ -26,12 +26,8 @@ public class AccountController {
 	@CircuitBreaker(reset = "30s")
 	public HttpResponse<?> save(@Body @Valid Account account) {
 
-		if (account.getOwner().isEmpty() || account.getBalance() == 0.0) {
-			return HttpResponse.status(HttpStatus.BAD_REQUEST).body("Owner/Balance parameter can't be null neither 0");
-		} else {
-			accountServiceImpl.save(account);
-			return HttpResponse.status(HttpStatus.CREATED).body(account);
-		}
+		accountServiceImpl.save(account);
+		return HttpResponse.status(HttpStatus.CREATED).body(account);
 
 	}
 

@@ -27,6 +27,9 @@ public class AccountServiceImpl implements AccountService {
 	@Transactional
 	@Override
 	public void save(Account account) {
+		if (account.getOwner().isEmpty() || account.getBalance() == 0.0) {
+			throw new APIException("Owner/Balance parameter can't be null neither 0");
+		}
 		entityManager.persist(account);
 	}
 

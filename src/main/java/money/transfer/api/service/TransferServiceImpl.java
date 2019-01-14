@@ -33,6 +33,10 @@ public class TransferServiceImpl implements TransferService {
 	@Transactional
 	public void transfer(Transaction transfer) {
 
+		if (transfer.getFromId() == 0 || transfer.getToId() == 0 || transfer.getAmount() == 0.0) {
+			throw new APIException("From/ To / Amount parameter can't be null neither 0");
+		}
+
 		Optional<Account> fromAccount = accountService.getAccountByOwner(transfer.getFromId());
 
 		Optional<Account> toAccount = accountService.getAccountByOwner(transfer.getToId());
