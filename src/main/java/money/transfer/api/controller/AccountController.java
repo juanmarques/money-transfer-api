@@ -14,13 +14,13 @@ import io.micronaut.http.annotation.Post;
 import io.micronaut.retry.annotation.CircuitBreaker;
 import io.reactivex.Observable;
 import money.transfer.api.model.Account;
-import money.transfer.api.service.AccountServiceImpl;
+import money.transfer.api.service.AccountService;
 
 @Controller(value = "/api")
 public class AccountController {
 
 	@Inject
-	private AccountServiceImpl accountServiceImpl;
+	private AccountService accountServiceImpl;
 
 	@Post("/account")
 	@CircuitBreaker(reset = "30s")
